@@ -18,6 +18,6 @@
 @property (nonatomic, strong) NSString *gateway;
 @property (nonatomic, strong) NSString *dns;
 
-- (instancetype) init;
+- (instancetype)init;
 
 @end

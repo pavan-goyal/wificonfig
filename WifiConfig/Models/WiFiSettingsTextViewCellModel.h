@@ -13,7 +13,9 @@
 @property (nonatomic, strong) NSString *firstLabel;
 @property (nonatomic, strong) NSString *secondLabel;
 @property (nonatomic, strong) NSString *placeHolder;
+@property (nonatomic, assign) NSInteger tag;
 
-- (instancetype) init;
+- (instancetype)initWithFirstLabel:(NSString *)firstLabel secondLabel:(NSString *)secondLabel placeHolder:(NSString *)placeHolder tag:(NSInteger)tag;
+- (instancetype)initWithSecondLabel:(NSString *)secondLabel placeHolder:(NSString *)placeHolder tag:(NSInteger)tag;
 
 @end
