@@ -10,4 +10,14 @@
 
 @interface WifiConfigModel : NSObject
 
+@property (nonatomic, strong) NSString *ssid;
+@property (nonatomic, strong) NSString *security;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *ip;
+@property (nonatomic, strong) NSString *netmask;
+@property (nonatomic, strong) NSString *gateway;
+@property (nonatomic, strong) NSString *dns;
+
+- (instancetype) init;
+
 @end
