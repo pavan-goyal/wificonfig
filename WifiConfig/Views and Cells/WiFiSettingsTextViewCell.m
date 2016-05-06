@@ -8,17 +8,34 @@
 
 #import "WiFiSettingsTextViewCell.h"
 
+@interface WiFiSettingsTextViewCell ()
+
+//@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
+@end
+
 @implementation WiFiSettingsTextViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)createCellWithModel:(WiFiSettingsTextViewCellModel *)cellModel {
+    if (cellModel.firstLabel) {
+       // self.firstLabel.text = cellModel.firstLabel;
+    }
+    self.secondLabel.text = cellModel.secondLabel;
+    self.textView.tag = cellModel.tag;
+}
 
-    // Configure the view for the selected state
++ (CGFloat)heightWithTwoLabels {
+    return 100;
+}
+
++ (CGFloat)heightWithOneLabel {
+    return 84;
 }
 
 @end

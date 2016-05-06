@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WiFiSettingsTextViewCellModel.h"
 
 @interface WiFiSettingsTextViewCell : UITableViewCell
+
+- (void)createCellWithModel:(WiFiSettingsTextViewCellModel *)cellModel;
++ (CGFloat)heightWithTwoLabels;
++ (CGFloat)heightWithOneLabel;
 
 @end
