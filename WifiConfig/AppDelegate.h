@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  WifiConfig
 //
-//  Created by Pavan Kumar Goyal on 5/6/16.
+//  Created by Pavan Goyal on 5/6/16.
 //  Copyright © 2016 Pavan Goyal. All rights reserved.
 //
 

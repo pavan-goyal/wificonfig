@@ -10,5 +10,8 @@
 
 @implementation WiFiSettingsHeaderView
 
++ (CGFloat)height {
+    return 44;
+}
 
 @end

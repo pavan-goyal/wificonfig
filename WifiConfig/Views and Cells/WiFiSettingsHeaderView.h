@@ -10,4 +10,6 @@
 
 @interface WiFiSettingsHeaderView : UIView
 
++ (CGFloat)height;
+
 @end

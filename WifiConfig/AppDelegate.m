@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  WifiConfig
 //
-//  Created by Pavan Kumar Goyal on 5/6/16.
+//  Created by Pavan Goyal on 5/6/16.
 //  Copyright © 2016 Pavan Goyal. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "WifiConfigViewVC.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    WifiConfigViewVC *wifiVC = [[WifiConfigViewVC alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:wifiVC];
+    self.window.rootViewController = navigationController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

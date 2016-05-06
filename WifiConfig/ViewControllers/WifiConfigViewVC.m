@@ -7,8 +7,11 @@
 //
 
 #import "WifiConfigViewVC.h"
+#import "WiFiSettingsHeaderView.h"
 
 @interface WifiConfigViewVC ()
+
+@property (strong, nonatomic) WiFiSettingsHeaderView *navigationBarView;
 
 @end
 
@@ -16,12 +19,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationBarView = (WiFiSettingsHeaderView *)[[[NSBundle mainBundle] loadNibNamed:@"WiFiSettingsHeaderView" owner:self options:nil] objectAtIndex:0];
+    self.navigationBarView.frame = CGRectMake(0, 0, self.view.bounds.size.width, [WiFiSettingsHeaderView height]);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar addSubview:self.navigationBarView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationBarView removeFromSuperview];
 }
 
 @end
