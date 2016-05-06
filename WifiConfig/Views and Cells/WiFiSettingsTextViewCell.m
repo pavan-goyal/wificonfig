@@ -12,7 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstLabelHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstAndSecondLabelVerticalSpacingConstraint;
 
 @end
 
@@ -20,18 +22,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)createCellWithModel:(WiFiSettingsTextViewCellModel *)cellModel {
     if (cellModel.firstLabel) {
         self.firstLabel.text = cellModel.firstLabel;
+        self.firstLabelHeightConstraint.constant = 18;
+        self.firstAndSecondLabelVerticalSpacingConstraint.constant = 16;
+    }
+    else {
+        self.firstLabelHeightConstraint.constant = 0;
+        self.firstAndSecondLabelVerticalSpacingConstraint.constant = 0;
     }
     self.secondLabel.text = cellModel.secondLabel;
-    self.textView.tag = cellModel.tag;
+    self.textField.tag = cellModel.tag;
+    self.textField.placeholder = cellModel.placeHolder;
 }
 
 + (CGFloat)heightWithTwoLabels {
-    return 100;
+    return 132;
 }
 
 + (CGFloat)heightWithOneLabel {

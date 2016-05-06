@@ -32,7 +32,7 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBarView = (WiFiSettingsHeaderView *)[[[NSBundle mainBundle] loadNibNamed:@"WiFiSettingsHeaderView" owner:self options:nil] objectAtIndex:0];
-    self.navigationBarView.frame = CGRectMake(0, 0, self.view.bounds.size.width, [WiFiSettingsHeaderView height]);
+    self.navigationBarView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [WiFiSettingsHeaderView height]);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WiFiSettingsTextViewCell class]) bundle:nil] forCellReuseIdentifier:kTextViewCellReuseIdentifier];
