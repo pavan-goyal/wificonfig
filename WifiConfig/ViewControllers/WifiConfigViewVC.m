@@ -12,7 +12,7 @@
 #import "WiFiSettingsTextViewCell.h"
 #import "WifiConfigModel.h"
 
-@interface WifiConfigViewVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface WifiConfigViewVC ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -68,6 +68,7 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     WiFiSettingsTextViewCellModel *cellModel = self.tableViewCellsData[indexPath.row];
     WiFiSettingsTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextViewCellReuseIdentifier forIndexPath:indexPath];
     [cell createCellWithModel:cellModel];
+    cell.textField.delegate = self;
     return cell;
 }
 
@@ -81,9 +82,14 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     }
 }
 
+#pragma mark - UITextField Delegate Methods
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self saveDataOfTextField:textField];
+}
+
 - (IBAction)saveButtonClicked:(UIButton *)sender {
-    /* Data is getting saved in model everytime user changes configuration in textfield. Do whatever you want to do with "self.configModel" here in this function. Here I am showing alert.
-     */
+    /* Data is getting saved in model everytime user changes configuration in textfield. Do whatever you want to do with "self.configModel" here in this function. Here I am showing alert.*/
     [self showAlert];
 }
 
@@ -103,6 +109,27 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 - (void)showAlert {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"WiFiConfig" message:@"Data has been saved." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
+}
+
+- (void)saveDataOfTextField:(UITextField *)textField {
+    if (textField.tag == kSsidTag) {
+        self.configModel.ssid = textField.text;
+    }
+    else if (textField.tag == kPasswordTag) {
+        self.configModel.password = textField.text;
+    }
+    else if (textField.tag == kNetmaskTag) {
+        self.configModel.netmask = textField.text;
+    }
+    else if ( textField.tag == kIpTag ) {
+        self.configModel.ip = textField.text;
+    }
+    else if ( textField.tag == kGatewayTag ) {
+        self.configModel.gateway = textField.text;
+    }
+    else if ( textField.tag == kDnsTag ) {
+        self.configModel.dns = textField.text;
+    }
 }
 
 @end

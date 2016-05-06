@@ -11,6 +11,8 @@
 
 @interface WiFiSettingsTextViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 - (void)createCellWithModel:(WiFiSettingsTextViewCellModel *)cellModel;
 + (CGFloat)heightWithTwoLabels;
 + (CGFloat)heightWithOneLabel;

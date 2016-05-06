@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstLabelHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstAndSecondLabelVerticalSpacingConstraint;
 
