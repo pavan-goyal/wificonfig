@@ -20,6 +20,7 @@
 		70F37A981CDD0B5B00896896 /* WiFiSettingsTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F37A961CDD0B5B00896896 /* WiFiSettingsTextViewCell.xib */; };
 		70F37A9B1CDD0C2B00896896 /* WiFiSettingsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F37A9A1CDD0C2B00896896 /* WiFiSettingsHeaderView.m */; };
 		70F37A9D1CDD0CA000896896 /* WiFiSettingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F37A9C1CDD0CA000896896 /* WiFiSettingsHeaderView.xib */; };
+		70F37AA01CDD225300896896 /* WiFiSettingsTextViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F37A9F1CDD225300896896 /* WiFiSettingsTextViewCellModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		70F37A991CDD0C2B00896896 /* WiFiSettingsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiSettingsHeaderView.h; path = "Views and Cells/WiFiSettingsHeaderView.h"; sourceTree = "<group>"; };
 		70F37A9A1CDD0C2B00896896 /* WiFiSettingsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WiFiSettingsHeaderView.m; path = "Views and Cells/WiFiSettingsHeaderView.m"; sourceTree = "<group>"; };
 		70F37A9C1CDD0CA000896896 /* WiFiSettingsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WiFiSettingsHeaderView.xib; path = "Views and Cells/WiFiSettingsHeaderView.xib"; sourceTree = "<group>"; };
+		70F37A9E1CDD225300896896 /* WiFiSettingsTextViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiSettingsTextViewCellModel.h; path = Models/WiFiSettingsTextViewCellModel.h; sourceTree = "<group>"; };
+		70F37A9F1CDD225300896896 /* WiFiSettingsTextViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WiFiSettingsTextViewCellModel.m; path = Models/WiFiSettingsTextViewCellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 			children = (
 				70F37A901CDD078900896896 /* WifiConfigModel.h */,
 				70F37A911CDD078900896896 /* WifiConfigModel.m */,
+				70F37A9E1CDD225300896896 /* WiFiSettingsTextViewCellModel.h */,
+				70F37A9F1CDD225300896896 /* WiFiSettingsTextViewCellModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				70F37A9B1CDD0C2B00896896 /* WiFiSettingsHeaderView.m in Sources */,
 				70D1E3331CDCFF84009B3C39 /* AppDelegate.m in Sources */,
 				70F37A861CDD05FE00896896 /* WifiConfigViewVC.m in Sources */,
+				70F37AA01CDD225300896896 /* WiFiSettingsTextViewCellModel.m in Sources */,
 				70F37A921CDD078900896896 /* WifiConfigModel.m in Sources */,
 				70D1E3301CDCFF84009B3C39 /* main.m in Sources */,
 			);
