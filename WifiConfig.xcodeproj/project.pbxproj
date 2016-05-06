@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		70D1E3301CDCFF84009B3C39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E32F1CDCFF84009B3C39 /* main.m */; };
 		70D1E3331CDCFF84009B3C39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3321CDCFF84009B3C39 /* AppDelegate.m */; };
-		70D1E3391CDCFF84009B3C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E3371CDCFF84009B3C39 /* Main.storyboard */; };
 		70D1E33B1CDCFF84009B3C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */; };
 		70D1E33E1CDCFF84009B3C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E33C1CDCFF84009B3C39 /* LaunchScreen.storyboard */; };
 		70D1E3491CDCFF84009B3C39 /* WifiConfigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3481CDCFF84009B3C39 /* WifiConfigTests.m */; };
@@ -21,6 +20,7 @@
 		70F37A9B1CDD0C2B00896896 /* WiFiSettingsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F37A9A1CDD0C2B00896896 /* WiFiSettingsHeaderView.m */; };
 		70F37A9D1CDD0CA000896896 /* WiFiSettingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F37A9C1CDD0CA000896896 /* WiFiSettingsHeaderView.xib */; };
 		70F37AA01CDD225300896896 /* WiFiSettingsTextViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F37A9F1CDD225300896896 /* WiFiSettingsTextViewCellModel.m */; };
+		70F37AA21CDD365900896896 /* WifiConfigViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70F37AA11CDD365900896896 /* WifiConfigViewVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 		70D1E32F1CDCFF84009B3C39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70D1E3311CDCFF84009B3C39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70D1E3321CDCFF84009B3C39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		70D1E3381CDCFF84009B3C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70D1E33D1CDCFF84009B3C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70D1E33F1CDCFF84009B3C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		70F37A9C1CDD0CA000896896 /* WiFiSettingsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WiFiSettingsHeaderView.xib; path = "Views and Cells/WiFiSettingsHeaderView.xib"; sourceTree = "<group>"; };
 		70F37A9E1CDD225300896896 /* WiFiSettingsTextViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFiSettingsTextViewCellModel.h; path = Models/WiFiSettingsTextViewCellModel.h; sourceTree = "<group>"; };
 		70F37A9F1CDD225300896896 /* WiFiSettingsTextViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WiFiSettingsTextViewCellModel.m; path = Models/WiFiSettingsTextViewCellModel.m; sourceTree = "<group>"; };
+		70F37AA11CDD365900896896 /* WifiConfigViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WifiConfigViewVC.xib; path = ViewControllers/WifiConfigViewVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,6 @@
 				70D1E33F1CDCFF84009B3C39 /* Info.plist */,
 				70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */,
 				70D1E33C1CDCFF84009B3C39 /* LaunchScreen.storyboard */,
-				70D1E3371CDCFF84009B3C39 /* Main.storyboard */,
 				70F37A8F1CDD073800896896 /* Models */,
 				70D1E32E1CDCFF84009B3C39 /* Supporting Files */,
 				70F37A831CDD058D00896896 /* ViewControllers */,
@@ -162,6 +161,7 @@
 			children = (
 				70F37A841CDD05FE00896896 /* WifiConfigViewVC.h */,
 				70F37A851CDD05FE00896896 /* WifiConfigViewVC.m */,
+				70F37AA11CDD365900896896 /* WifiConfigViewVC.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,9 +295,9 @@
 			files = (
 				70D1E33E1CDCFF84009B3C39 /* LaunchScreen.storyboard in Resources */,
 				70F37A9D1CDD0CA000896896 /* WiFiSettingsHeaderView.xib in Resources */,
+				70F37AA21CDD365900896896 /* WifiConfigViewVC.xib in Resources */,
 				70F37A981CDD0B5B00896896 /* WiFiSettingsTextViewCell.xib in Resources */,
 				70D1E33B1CDCFF84009B3C39 /* Assets.xcassets in Resources */,
-				70D1E3391CDCFF84009B3C39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,14 +364,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		70D1E3371CDCFF84009B3C39 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				70D1E3381CDCFF84009B3C39 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		70D1E33C1CDCFF84009B3C39 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

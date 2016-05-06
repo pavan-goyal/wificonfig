@@ -10,7 +10,7 @@
 
 @interface WiFiSettingsTextViewCell ()
 
-//@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -24,7 +24,7 @@
 
 - (void)createCellWithModel:(WiFiSettingsTextViewCellModel *)cellModel {
     if (cellModel.firstLabel) {
-       // self.firstLabel.text = cellModel.firstLabel;
+        self.firstLabel.text = cellModel.firstLabel;
     }
     self.secondLabel.text = cellModel.secondLabel;
     self.textView.tag = cellModel.tag;
