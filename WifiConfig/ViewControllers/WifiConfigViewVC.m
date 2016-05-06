@@ -10,12 +10,15 @@
 #import "WiFiSettingsHeaderView.h"
 #import "WiFiSettingsTextViewCellModel.h"
 #import "WiFiSettingsTextViewCell.h"
+#import "WifiConfigModel.h"
 
 @interface WifiConfigViewVC ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WiFiSettingsHeaderView *navigationBarView;
 @property (strong, nonatomic) NSArray *tableViewCellsData;
+@property (strong, nonatomic) WifiConfigModel *configModel;
 
 @end
 
@@ -31,7 +34,7 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBarView = (WiFiSettingsHeaderView *)[[[NSBundle mainBundle] loadNibNamed:@"WiFiSettingsHeaderView" owner:self options:nil] objectAtIndex:0];
+    self.navigationBarView = (WiFiSettingsHeaderView *)[[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([WiFiSettingsHeaderView class]) owner:self options:nil] objectAtIndex:0];
     self.navigationBarView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [WiFiSettingsHeaderView height]);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -41,6 +44,7 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar addSubview:self.navigationBarView];
+    self.configModel = [[WifiConfigModel alloc]init];
     self.tableViewCellsData = [self createDataForTableViewCells];
     [self.tableView reloadData];
 }
@@ -77,6 +81,12 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     }
 }
 
+- (IBAction)saveButtonClicked:(UIButton *)sender {
+    /* Data is getting saved in model everytime user changes configuration in textfield. Do whatever you want to do with "self.configModel" here in this function. Here I am showing alert.
+     */
+    [self showAlert];
+}
+
 #pragma mark - Private Methods
 
 - (NSArray *)createDataForTableViewCells {
@@ -88,6 +98,11 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     WiFiSettingsTextViewCellModel *dnsCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"DNS" placeHolder:@"8.8.8.8" tag:kDnsTag];
     NSArray *dataArray = @[ssidCellData, passwordCellData, ipCellData, netmaskCellData, gatewayCellData, dnsCellData];
     return dataArray;
+}
+
+- (void)showAlert {
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"WiFiConfig" message:@"Data has been saved." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
 }
 
 @end
