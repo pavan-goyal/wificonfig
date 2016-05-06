@@ -2,17 +2,17 @@
 //  ViewController.m
 //  WifiConfig
 //
-//  Created by Pavan Kumar Goyal on 5/6/16.
+//  Created by Pavan Goyal on 5/6/16.
 //  Copyright © 2016 Pavan Goyal. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "WifiConfigViewVC.h"
 
-@interface ViewController ()
+@interface WifiConfigViewVC ()
 
 @end
 
-@implementation ViewController
+@implementation WifiConfigViewVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

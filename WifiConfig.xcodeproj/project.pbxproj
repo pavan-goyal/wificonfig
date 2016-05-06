@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		70D1E3301CDCFF84009B3C39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E32F1CDCFF84009B3C39 /* main.m */; };
 		70D1E3331CDCFF84009B3C39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3321CDCFF84009B3C39 /* AppDelegate.m */; };
-		70D1E3361CDCFF84009B3C39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3351CDCFF84009B3C39 /* ViewController.m */; };
 		70D1E3391CDCFF84009B3C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E3371CDCFF84009B3C39 /* Main.storyboard */; };
 		70D1E33B1CDCFF84009B3C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */; };
 		70D1E33E1CDCFF84009B3C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D1E33C1CDCFF84009B3C39 /* LaunchScreen.storyboard */; };
 		70D1E3491CDCFF84009B3C39 /* WifiConfigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3481CDCFF84009B3C39 /* WifiConfigTests.m */; };
 		70D1E3541CDCFF84009B3C39 /* WifiConfigUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1E3531CDCFF84009B3C39 /* WifiConfigUITests.m */; };
+		70F37A861CDD05FE00896896 /* WifiConfigViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F37A851CDD05FE00896896 /* WifiConfigViewVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		70D1E32F1CDCFF84009B3C39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70D1E3311CDCFF84009B3C39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70D1E3321CDCFF84009B3C39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		70D1E3341CDCFF84009B3C39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		70D1E3351CDCFF84009B3C39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		70D1E3381CDCFF84009B3C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70D1E33D1CDCFF84009B3C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		70D1E34F1CDCFF84009B3C39 /* WifiConfigUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WifiConfigUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D1E3531CDCFF84009B3C39 /* WifiConfigUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiConfigUITests.m; sourceTree = "<group>"; };
 		70D1E3551CDCFF84009B3C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70F37A841CDD05FE00896896 /* WifiConfigViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiConfigViewVC.h; path = ViewControllers/WifiConfigViewVC.h; sourceTree = "<group>"; };
+		70F37A851CDD05FE00896896 /* WifiConfigViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiConfigViewVC.m; path = ViewControllers/WifiConfigViewVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +103,12 @@
 			children = (
 				70D1E3311CDCFF84009B3C39 /* AppDelegate.h */,
 				70D1E3321CDCFF84009B3C39 /* AppDelegate.m */,
-				70D1E3341CDCFF84009B3C39 /* ViewController.h */,
-				70D1E3351CDCFF84009B3C39 /* ViewController.m */,
-				70D1E3371CDCFF84009B3C39 /* Main.storyboard */,
+				70D1E33F1CDCFF84009B3C39 /* Info.plist */,
 				70D1E33A1CDCFF84009B3C39 /* Assets.xcassets */,
 				70D1E33C1CDCFF84009B3C39 /* LaunchScreen.storyboard */,
-				70D1E33F1CDCFF84009B3C39 /* Info.plist */,
+				70D1E3371CDCFF84009B3C39 /* Main.storyboard */,
 				70D1E32E1CDCFF84009B3C39 /* Supporting Files */,
+				70F37A831CDD058D00896896 /* ViewControllers */,
 			);
 			path = WifiConfig;
 			sourceTree = "<group>";
@@ -138,6 +137,15 @@
 				70D1E3551CDCFF84009B3C39 /* Info.plist */,
 			);
 			path = WifiConfigUITests;
+			sourceTree = "<group>";
+		};
+		70F37A831CDD058D00896896 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				70F37A841CDD05FE00896896 /* WifiConfigViewVC.h */,
+				70F37A851CDD05FE00896896 /* WifiConfigViewVC.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70D1E3361CDCFF84009B3C39 /* ViewController.m in Sources */,
 				70D1E3331CDCFF84009B3C39 /* AppDelegate.m in Sources */,
+				70F37A861CDD05FE00896896 /* WifiConfigViewVC.m in Sources */,
 				70D1E3301CDCFF84009B3C39 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +506,7 @@
 				70D1E35A1CDCFF84009B3C39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70D1E35B1CDCFF84009B3C39 /* Build configuration list for PBXNativeTarget "WifiConfigTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +515,7 @@
 				70D1E35D1CDCFF84009B3C39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70D1E35E1CDCFF84009B3C39 /* Build configuration list for PBXNativeTarget "WifiConfigUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +524,7 @@
 				70D1E3601CDCFF84009B3C39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
