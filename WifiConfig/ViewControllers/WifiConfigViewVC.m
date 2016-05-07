@@ -136,7 +136,12 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     [self saveDataOfTextField:textField];
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.currentTextField = textField;
+}
+
 - (IBAction)saveButtonClicked:(UIButton *)sender {
+    [self.currentTextField resignFirstResponder];
     [self showAlert];
 }
 
@@ -178,11 +183,15 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     else if (textField.tag == kDnsTag) {
         self.configModel.dns = textField.text;
     }
+    else if (textField.tag == kSecurityTag) {
+        self.configModel.security = textField.text;
+    }
 }
 
 - (void)done {
     NSInteger row = [self.pickerView selectedRowInComponent:0];
     self.currentTextField.text = [self.pickerArray objectAtIndex:row];
+    [self.currentTextField resignFirstResponder];
 }
 
 @end
