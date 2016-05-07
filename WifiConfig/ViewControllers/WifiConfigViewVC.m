@@ -12,13 +12,17 @@
 #import "WiFiSettingsTextViewCell.h"
 #import "WifiConfigModel.h"
 
-@interface WifiConfigViewVC ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface WifiConfigViewVC ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WiFiSettingsHeaderView *navigationBarView;
 @property (strong, nonatomic) NSArray *tableViewCellsData;
 @property (strong, nonatomic) WifiConfigModel *configModel;
+@property (strong, nonatomic) UIPickerView *pickerView;
+@property (strong, nonatomic) NSArray *pickerArray;
+@property (strong, nonatomic) UIToolbar *toolBar;
+@property (strong, nonatomic) UITextField *currentTextField;
 
 @end
 
@@ -30,6 +34,7 @@ static const NSInteger kIpTag = 102;
 static const NSInteger kNetmaskTag = 103;
 static const NSInteger kGatewayTag = 104;
 static const NSInteger kDnsTag = 105;
+static const NSInteger kSecurityTag = 106;
 static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 
 - (void)viewDidLoad {
@@ -39,6 +44,7 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WiFiSettingsTextViewCell class]) bundle:nil] forCellReuseIdentifier:kTextViewCellReuseIdentifier];
+    [self addPickerView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,6 +58,24 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationBarView removeFromSuperview];
+}
+
+- (void)addPickerView {
+    self.pickerArray = @[@"None",@"WEP",@"WPA/WPA2 Personal",@"WPA2 Personal",@"Dynamic WEP",@"WPA/WPA2 Enterprise",@"WPA2 Enterprise"];
+    self.pickerView = [[UIPickerView alloc]init];
+    self.pickerView.dataSource = self;
+    self.pickerView.delegate = self;
+    self.pickerView.showsSelectionIndicator = YES;
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   target:self action:@selector(done)];
+    self.toolBar = [[UIToolbar alloc]initWithFrame:
+                          CGRectMake(0, self.view.frame.size.height-
+                                     self.pickerView.frame.size.height-50, [[UIScreen mainScreen] bounds].size.width, 40)];
+    [self.toolBar setBarStyle:UIBarStyleBlackOpaque];
+    NSArray *toolbarItems = [NSArray arrayWithObjects:
+                             doneButton, nil];
+    [self.toolBar setItems:toolbarItems];
 }
 
 #pragma mark - UITableView Methods
@@ -69,6 +93,10 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     WiFiSettingsTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextViewCellReuseIdentifier forIndexPath:indexPath];
     [cell createCellWithModel:cellModel];
     cell.textField.delegate = self;
+    if (cellModel.tag == kSecurityTag) {
+        cell.textField.inputView = self.pickerView;
+        cell.textField.inputAccessoryView = self.toolBar;
+    }
     return cell;
 }
 
@@ -82,6 +110,26 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     }
 }
 
+#pragma mark - Picker View Data source
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.pickerArray count];
+}
+
+#pragma mark- Picker View Delegate
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.configModel.security = [self.pickerArray objectAtIndex:row];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent:(NSInteger)component {
+    return [self.pickerArray objectAtIndex:row];
+}
+
 #pragma mark - UITextField Delegate Methods
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -89,7 +137,6 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 }
 
 - (IBAction)saveButtonClicked:(UIButton *)sender {
-    /* Data is getting saved in model everytime user changes configuration in textfield. Do whatever you want to do with "self.configModel" here in this function. Here I am showing alert.*/
     [self showAlert];
 }
 
@@ -97,12 +144,13 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
 
 - (NSArray *)createDataForTableViewCells {
     WiFiSettingsTextViewCellModel *ssidCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"SSID" placeHolder:@"MyHomeWiFi" tag:kSsidTag];
+    WiFiSettingsTextViewCellModel *securityCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"Security" placeHolder:@"Select security" tag:kSecurityTag];
     WiFiSettingsTextViewCellModel *passwordCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"Password" placeHolder:@"Enter Password" tag:kPasswordTag];
     WiFiSettingsTextViewCellModel *ipCellData = [[WiFiSettingsTextViewCellModel alloc] initWithFirstLabel:@"DHCP" secondLabel:@"IP" placeHolder:@"192.168.0.10" tag:kIpTag];
     WiFiSettingsTextViewCellModel *netmaskCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"Netmask" placeHolder:@"255.255.255.0" tag:kNetmaskTag];
     WiFiSettingsTextViewCellModel *gatewayCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"Gateway" placeHolder:@"192.168.0.1" tag:kGatewayTag];
     WiFiSettingsTextViewCellModel *dnsCellData = [[WiFiSettingsTextViewCellModel alloc] initWithSecondLabel:@"DNS" placeHolder:@"8.8.8.8" tag:kDnsTag];
-    NSArray *dataArray = @[ssidCellData, passwordCellData, ipCellData, netmaskCellData, gatewayCellData, dnsCellData];
+    NSArray *dataArray = @[ssidCellData, securityCellData, passwordCellData, ipCellData, netmaskCellData, gatewayCellData, dnsCellData];
     return dataArray;
 }
 
@@ -121,15 +169,20 @@ static NSString *kTextViewCellReuseIdentifier = @"text_view_cell";
     else if (textField.tag == kNetmaskTag) {
         self.configModel.netmask = textField.text;
     }
-    else if ( textField.tag == kIpTag ) {
+    else if (textField.tag == kIpTag) {
         self.configModel.ip = textField.text;
     }
-    else if ( textField.tag == kGatewayTag ) {
+    else if (textField.tag == kGatewayTag) {
         self.configModel.gateway = textField.text;
     }
-    else if ( textField.tag == kDnsTag ) {
+    else if (textField.tag == kDnsTag) {
         self.configModel.dns = textField.text;
     }
+}
+
+- (void)done {
+    NSInteger row = [self.pickerView selectedRowInComponent:0];
+    self.currentTextField.text = [self.pickerArray objectAtIndex:row];
 }
 
 @end
